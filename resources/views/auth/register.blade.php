@@ -14,9 +14,7 @@
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin_assets/vendor/fontawesome-free/css/all/min.css') }}" rel="stylesheet" type="text/css">
     
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('admin_assets/css/sb-admin-2.min.css ') }}" rel="stylesheet">
@@ -39,36 +37,27 @@
                             </div>
                             <form action="{{ route('register.save') }}" method="POST" class="user">
                                 @csrf
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="name" class="form-control form-control-user @error('name') is-invalid @enderror" id="exampleFirstName"
-                                            placeholder="First Name"> 
+                                <div class="form-group">
+                                        <input type="text" name="name" class="form-control form-control-user @error('name') is-invalid @enderror" id="exampleInputName" placeholder="Name"> 
                                             @error('name')
                                             <span class="invalid-feedback">{{ $message }}</span>
                                             @enderror
                                     </div>
-                                    <div class="col-sm-6">
-                                        <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleLastName"
-                                            placeholder="Last Name">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" placeholder="Email">
                                             @error('email')
                                             <span class="invalid-feedback">{{$message }}</span>
                                             @enderror
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputEmail"
-                                        placeholder="Password">
+                                <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <input type="password" name="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword" placeholder="Password">
                                         @error('password')
                                         <span class="invalid-feedback">{{ $message }}</span>
+                                        @enderror
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
-                                    </div>
                                     <div class="col-sm-6">
-                                        <input type="password"name="password_confirmation" class="form-control form-control-user @error('password_confirmation') is-invalid @enderror"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password">
+                                        <input type="password" name="password_confirmation" class="form-control form-control-user @error('password_confirmation')is-invalid @enderror" id="exampleRepeatPassword" placeholder="Repeat Password">
                                             @error('password_confirmation')
                                             <span class="invalid-feedback">{{ $message }}</span>
                                             @enderror
@@ -79,7 +68,7 @@
                             </form>
                            
                             <div class="text-center">
-                                <a class="small" href="">Already have an account? Login!</a>
+                                <a class="small" href="{{route('login') }}">Already have an account? Login!</a>
                             </div>
                         </div>
                     </div>
